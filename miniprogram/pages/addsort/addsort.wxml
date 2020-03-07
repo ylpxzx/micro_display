@@ -1,0 +1,16 @@
+<!--pages/addsort/addsort.wxml-->
+<form>
+  <view class="cu-form-group">
+    <view class="title">类别名</view>
+    <input placeholder="输入类别名" bindinput="textInput"></input>
+  </view>
+  <view class="cu-form-group margin-top">
+  <view class="title">颜色选择</view>
+		<picker bindchange="PickerChange" value="{{index}}" range="{{ColorList}}">
+			<view class="picker">
+				{{index?ColorList[index]:'请选择颜色'}}
+			</view>
+		</picker>
+    </view>
+</form>
+<button class="cu-btn block bg-blue margin-tb-sm margin-lr-sm lg" bindtap="publishBt">添加</button>

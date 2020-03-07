@@ -1,0 +1,82 @@
+<scroll-view scroll-y class="scrollPage">
+  <view class="UCenter-bg bg-gradual-pink">
+
+    <button mode="widthFix" open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" class="userinfo-avatar" style="background-image: url({{avatarUrl}})"></button>
+
+
+    <view class="text-xl">{{nickName}}
+    </view>
+    <image src="../../images/wave.gif" mode="scaleToFill" class="gif-wave"></image>
+  </view>
+
+  <view wx:if="{{logged==true}}" class="padding flex text-center text-grey bg-white shadow-warp">
+    <view wx:if="{{owner}}" class="flex flex-sub flex-direction solid-right" bindtap="myblog">
+      <view class="text-xxl text-orange">{{blogNum}}</view>
+      <view class="margin-top-sm">
+        <text class="cuIcon-writefill"></text> 发布</view>
+    </view>
+    <view class="flex flex-sub flex-direction" bindtap="mycollect">
+      <view class="text-xxl text-blue">{{collectNum}}</view>
+      <view class="margin-top-sm">
+        <text class="cuIcon-likefill"></text> 收藏</view>
+    </view>
+  </view>
+  <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+    <view class="cu-item arrow" bindtap="showModal" data-target="Image">
+      <view class="content">
+        <text class="cuIcon-friendadd text-blue"></text>
+        <text class="text-grey">管理员二维码</text>
+      </view>
+    </view>
+
+<view class="cu-modal {{modalName=='Image'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="bg-img" style="background-image: url('https://ossweb-img.qq.com/images/lol/web201310/skin/big91012.jpg');height:200px;">
+      <view class="cu-bar justify-end text-white">
+        <view class="action" bindtap="hideModal">
+          <text class="cuIcon-close "></text>
+        </view>
+      </view>
+    </view>
+    <view class="cu-bar bg-white">
+      <view class="action margin-0 flex-sub  solid-left" bindtap="hideModal">截图识别加好友</view>
+    </view>
+  </view>
+</view>
+
+
+
+    <view class="cu-item arrow" bindtap="myblog" wx:if="{{owner}}">
+      <view class="content">
+        <text class="cuIcon-write text-orange"></text>
+        <text class="text-grey">发布商品</text>
+      </view>
+    </view>
+    <!-- <view class="cu-item arrow" bindtap="myswiper" wx:if="{{owner}}"> -->
+    <!-- <view class="cu-item arrow" bindtap="myswiper" wx:if="{{owner}}">
+      <view class="content">
+        <text class="cuIcon-picfill text-grey"></text>
+        <text class="text-grey">更改轮播图</text>
+      </view>
+    </view> -->
+    <view class="cu-item arrow" bindtap="mysort" wx:if="{{owner}}">
+      <view class="content">
+        <text class="cuIcon-list text-green"></text>
+        <text class="text-grey">分类添加</text>
+      </view>
+    </view>
+    <view class="cu-item arrow" bindtap="adviceBt">
+      <view class="content">
+        <text class="cuIcon-questionfill text-red"></text>
+        <text class="text-grey">意见反馈</text>
+      </view>
+    </view>
+    <view class="cu-item arrow" bindtap="aboutBt">
+      <view class="content">
+        <text class="cuIcon-creativefill text-yellow"></text>
+        <text class="text-grey">关于</text>
+      </view>
+    </view>
+  </view>
+  <view class="cu-tabbar-height"></view>
+</scroll-view>

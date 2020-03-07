@@ -1,0 +1,29 @@
+<!--pages/sort/sort.wxml-->
+<view class="cu-bar bg-white" wx:if="{{sortinfo.length==0}}">
+  <view class="action">
+    <text class="cuIcon-title text-orange"></text> 暂无分类
+  </view>
+</view>
+
+<view class="cu-bar bg-white" wx:if="{{sortinfo.length!=0}}">
+  <view class="action">
+    <text class="cuIcon-title text-orange"></text> 我的分类
+  </view>
+</view>
+
+
+<view class="padding-sm flex flex-wrap">
+  <view class="padding-xs" wx:for="{{sortinfo}}" wx:key  wx:if="{{item.color!='gray'}}">
+    <view class="cu-tag bg-{{item.color}}">{{item.sort_v}}</view>
+  </view>
+</view>
+
+
+
+<view class="add-wrap" hover-class="plus-hover">
+  <button bindtap="toaddSort" class="cu-btn icon round bg-green shadow  lg add-button">
+    <text class='text-xxl'>+</text>
+  </button>
+</view>
+
+

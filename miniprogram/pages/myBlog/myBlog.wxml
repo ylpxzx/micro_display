@@ -1,0 +1,44 @@
+<view class="cu-bar bg-white" wx:if="{{bloginfo.length==0}}">
+  <view class="action">
+    <text class="cuIcon-title text-orange"></text> 暂无发布
+  </view>
+</view>
+<view class="cu-bar bg-white" wx:if="{{bloginfo.length!=0}}">
+  <view class="action">
+    <text class="cuIcon-title text-orange"></text> 我的发布(长按删除)
+  </view>
+</view>
+<view wx:for="{{bloginfo}}" wx:key="key" wx:for-index="index" wx:for-item="item">
+  <view class="solid-bottom"></view>
+  <view class="cu-card case no-card">
+    <view class="cu-item shadow">
+      <view class="image" data-item="{{item}}" data-index="{{index}}" data-user="{{userinfo[index]}}" bindlongtap='onDeleteBlog' bindtap="viewItem" bindtouchstart="bindTouchStart" bindtouchend="bindTouchEnd">
+        <image src="{{item.picture[1]}}" mode="aspectFit" style='height: 288rpx;'></image>
+        <view class="cu-bar bg-shadeBottom">
+          <text class="text-cut">{{item.title}}</text>
+        </view>
+      </view>
+      <view class="cu-list menu-avatar">
+        <view class="cu-item">
+          <view class="cu-avatar round lg" style="background-image:url({{userinfo[index].avatarUrl}});"></view>
+          <view class="content flex-sub">
+            <view class="text-grey">{{userinfo[index].nickName}}</view>
+            <view class="text-gray text-sm flex justify-between">
+              {{item.datetime}}
+              <view class="text-gray text-sm">
+              <view class="cu-tag bg-red light sm round">{{item.sort_value}}</view>
+              <!-- <view class="cu-tag bg-green light sm round">标签2</view> -->
+                <text class="cuIcon-likefill margin-lr-xs"></text> {{item.collectNum}}
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="add-wrap" hover-class="plus-hover">
+  <button bindtap="publish" class="cu-btn icon round bg-red shadow  lg add-button">
+    <text class='text-xxl'>+</text>
+  </button>
+</view>
